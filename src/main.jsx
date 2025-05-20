@@ -8,6 +8,11 @@ import {
   RouterProvider,
 } from "react-router";
 import Home from './Home.jsx';
+import AllPlants from './AllPlants.jsx';
+import AddPlants from './AddPlants.jsx';
+import MyPlants from './MyPlants.jsx';
+import Login from './Login.jsx';
+import Register from './Register.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +23,26 @@ const router = createBrowserRouter([
         index: true,
         path: "/",
         element: <Home />
+      },
+      {
+        path: "/all-plants",
+        element: <AllPlants />
+      },
+      {
+        path: "/add-plants",
+        element: <AddPlants />
+      },
+      {
+        path: "/my-plants",
+        element: <MyPlants />
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/register",
+        element: <Register />
       }
     ]
   },
