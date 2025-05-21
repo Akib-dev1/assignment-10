@@ -1,10 +1,12 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "./AuthProvidor";
 
 const Navbar = () => {
+  const {logout,user}=use(AuthContext);
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar bg-green-900 lg:text-white shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -79,12 +81,21 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login">
-            <a className="btn btn-outline btn-success mx-4">Login</a>
-          </Link>
-          <Link to="/register">
-            <a className="btn mr-2 btn-soft btn-success">Register</a>
-          </Link>
+          <div className="navbar-end flex gap-2.5">
+          {user?<div className="dropdown dropdown-end">
+            <div className="avatar cursor-pointer" tabIndex={0} role="button">
+              <div className="w-12 rounded-full" title={user.displayName}>
+                <img src={user.photoURL} />
+              </div>
+            </div>
+            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+              <li><button className="btn btn-success text-black mt-1" onClick={logout}>Logout</button></li>
+            </ul>
+          </div>:<div className="flex gap-2.5">
+            <Link to="/login" className="btn btn-outline btn-success">Log In</Link>
+            <Link to="/register" className="btn btn-success">Register</Link>
+          </div>}
+        </div>
         </div>
       </div>
     </div>

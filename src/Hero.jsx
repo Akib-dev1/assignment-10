@@ -24,17 +24,17 @@ const Hero = () => {
       >
         <SwiperSlide>
           <div className="p-10">
-            <img src="https://i.ibb.co/zWHdRDgB/winterizing-7d19aa9c-3578-4f2e-bf88-d16e41d035e6-550x.webp" alt="" className="h-[37.5rem] mx-auto w-6xl"/>
+            <img src="https://i.ibb.co/zWHdRDgB/winterizing-7d19aa9c-3578-4f2e-bf88-d16e41d035e6-550x.webp" alt="" className="md:h-[37.5rem] mx-auto md:w-6xl"/>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="p-10">
-            <img src="https://i.ibb.co/6RszbS45/types-of-plants-information-set.webp" alt="" className="h-[37.5rem] mx-auto w-6xl"/>
+            <img src="https://i.ibb.co/6RszbS45/types-of-plants-information-set.webp" alt="" className="md:h-[37.5rem] mx-auto md:w-6xl"/>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="p-10">
-            <img src="https://i.ibb.co/vCcwQ6NC/2020-plant-care-basics-mangomini-1.jpg" alt="" className="h-[37.5rem] mx-auto w-6xl"/>
+            <img src="https://i.ibb.co/vCcwQ6NC/2020-plant-care-basics-mangomini-1.jpg" alt="" className="md:h-[37.5rem] mx-auto md:w-6xl"/>
           </div>
         </SwiperSlide>
       </Swiper>
