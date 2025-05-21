@@ -51,7 +51,7 @@ const Navbar = () => {
             </ul>
           </div>
           <a className="btn btn-ghost text-3xl text-green-500 font-bold">
-            PlantPlanet
+            <p>Plant<span className="text-orange-400">Planet</span></p>
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
