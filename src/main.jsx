@@ -13,6 +13,9 @@ import AddPlants from './AddPlants.jsx';
 import MyPlants from './MyPlants.jsx';
 import Login from './Login.jsx';
 import Register from './Register.jsx';
+import AuthProvidor from './AuthProvidor.jsx';
+import { ToastContainer } from 'react-toastify';
+import PrivateRoute from './PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,11 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-plants",
-        element: <AddPlants />
+        element: <PrivateRoute><AddPlants /></PrivateRoute>
       },
       {
         path: "/my-plants",
-        element: <MyPlants />
+        element: <PrivateRoute><MyPlants /></PrivateRoute>
       },
       {
         path: "/login",
@@ -49,6 +52,9 @@ const router = createBrowserRouter([
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvidor>
+      <RouterProvider router={router} />
+      <ToastContainer />
+    </AuthProvidor>
   </StrictMode>,
 )

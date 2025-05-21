@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap');
 .active{
     border-bottom: 2px solid #3b82f6;
     color: #3b82f6;
+}
+*{
+    font-family: "Playwrite DK Loopet", cursive;
 }

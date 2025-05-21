@@ -29,22 +29,22 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <NavLink className="border-b-2 border-b-transparent" to="/">
+                <NavLink className="border-b-2 text-lg border-b-transparent" to="/">
                   <a>Home</a>
                 </NavLink>
               </li>
               <li>
-                <NavLink className="border-b-2 border-b-transparent" to="/all-plants">
+                <NavLink className="border-b-2 text-lg border-b-transparent" to="/all-plants">
                   <a>All Plants</a>
                 </NavLink>
               </li>
               <li>
-                <NavLink className="border-b-2 border-b-transparent" to="/add-plants">
+                <NavLink className="border-b-2 text-lg border-b-transparent" to="/add-plants">
                   <a>Add Plants</a>
                 </NavLink>
               </li>
               <li>
-                <NavLink className="border-b-2 border-b-transparent" to="/my-plants">
+                <NavLink className="border-b-2 text-lg border-b-transparent" to="/my-plants">
                   <a>My Plants</a>
                 </NavLink>
               </li>
@@ -57,22 +57,22 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <NavLink className="border-b-2 border-b-transparent" to="/">
+              <NavLink className="border-b-2 text-lg border-b-transparent" to="/">
                 <a>Home</a>
               </NavLink>
             </li>
             <li>
-              <NavLink className="border-b-2 border-b-transparent" to="/all-plants">
+              <NavLink className="border-b-2 text-lg border-b-transparent" to="/all-plants">
                 <a>All Plants</a>
               </NavLink>
             </li>
             <li>
-              <NavLink className="border-b-2 border-b-transparent" to="/add-plants">
+              <NavLink className="border-b-2 text-lg border-b-transparent" to="/add-plants">
                 <a>Add Plants</a>
               </NavLink>
             </li>
             <li>
-              <NavLink className="border-b-2 border-b-transparent" to="/my-plants">
+              <NavLink className="border-b-2 text-lg border-b-transparent" to="/my-plants">
                 <a>My Plants</a>
               </NavLink>
             </li>
