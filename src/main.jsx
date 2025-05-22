@@ -17,6 +17,7 @@ import AuthProvidor from './AuthProvidor.jsx';
 import { ToastContainer } from 'react-toastify';
 import PrivateRoute from './PrivateRoute.jsx';
 import PlantDetails from './PlantDetails.jsx';
+import 'react-tooltip/dist/react-tooltip.css';
 
 const plantsData=fetch("http://localhost:5000/plants").then(res=>res.json());
 
@@ -46,7 +47,7 @@ const router = createBrowserRouter([
       },
       {
         path: "all-plants/:id",
-        element: <PrivateRoute><PlantDetails /></PrivateRoute>,
+        element: <Suspense fallback={<div className="flex justify-center items-center h-screen"><span className="loading loading-bars loading-xl mx-auto"></span></div>}><PrivateRoute><PlantDetails plantsData={plantsData}/></PrivateRoute></Suspense>,
       },
       {
         path: "/login",

@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { use } from "react";
 import Hero from "./Hero";
 import Section1 from "./Section1";
 import Section2 from "./Section2";
