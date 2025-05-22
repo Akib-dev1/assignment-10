@@ -16,7 +16,7 @@ const AllPlants = ({ plantsData }) => {
               <th>Plant Name</th>
               <th>Category</th>
               <th>Watering Frequency</th>
-              <th>Health Status</th>
+              <th>Care Level</th>
               <th>View Details</th>
             </tr>
           </thead>
@@ -27,7 +27,7 @@ const AllPlants = ({ plantsData }) => {
                 <td>{plant.name}</td>
                 <td>{plant.category}</td>
                 <td>{plant.frequency}</td>
-                <td>{plant.healthStatus}</td>
+                <td>{plant.careLevel}</td>
                 <Link to={`/all-plants/${plant._id}`}>
                   <td className="btn my-4 btn-success btn-outline">
                     View Details

@@ -8,7 +8,7 @@ const PlantDetails = ({ plantsData }) => {
   return (
     <div className="h-screen">
         <h1 className="text-5xl text-green-600 text-center my-5">Plant Details</h1>
-      <div className="card my-5 card-side bg-base-100 shadow-sm gap-10">
+      <div className="card my-5 max-md:grid card-side bg-base-100 shadow-sm gap-10">
         <figure>
           <img
             src={plant.image}
@@ -16,15 +16,17 @@ const PlantDetails = ({ plantsData }) => {
             className="w-96 h-96"
           />
         </figure>
-        <div className="card-body">
+        <div className="card-body max-md:text-sm grid md:grid-cols-2">
           <h2 className="card-title">Name: {plant.name}</h2>
-          <p className="text-lg">Description: {plant.description}</p>
-          <p className="text-lg">Watering Frequency: {plant.frequency}</p>
-          <p className="text-lg">Last Watered Date: {plant.lastWatered}</p>
-          <p className="text-lg">Nex Watering Date: {plant.nextWatered}</p>
-          <p className="text-lg">Health Status: {plant.healthStatus}</p>
-          <p className="text-lg">Added By User Name: {plant.userName}</p>
-          <p className="text-lg">Added By User Email: {plant.email}</p>
+          <p className="md:text-lg"><span className="font-bold">Description: </span>{plant.description}</p>
+          <p className="md:text-lg"><span className="font-bold">Category: </span>{plant.category}</p>
+          <p className="md:text-lg"><span className="font-bold">Watering Frequency: </span>{plant.frequency}</p>
+          <p className="md:text-lg"><span className="font-bold">Last Watered Date: </span>{plant.lastWatered}</p>
+          <p className="md:text-lg"><span className="font-bold">Next Watering Date: </span>{plant.nextWatered}</p>
+          <p className="md:text-lg"><span className="font-bold">Care Level: </span>{plant.careLevel}</p>
+          <p className="md:text-lg"><span className="font-bold">Health Status: </span>{plant.healthStatus}</p>
+          <p className="md:text-lg"><span className="font-bold">Added By User Name: </span>{plant.userName}</p>
+          <p className="md:text-lg"><span className="font-bold">Added By User Email: </span>{plant.email}</p>
         </div>
       </div>
     </div>
