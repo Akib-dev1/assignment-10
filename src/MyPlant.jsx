@@ -1,7 +1,34 @@
 import React from "react";
 import { Link } from "react-router";
+import Swal from "sweetalert2";
 
 const MyPlant = ({ plant }) => {
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/plants/${id}`, {
+          method: "DELETE",
+        }).then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your plant has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+      }
+    });
+  };
   return (
     <div className="min-h-screen">
       <h1 className="text-5xl text-green-600 text-center mt-10">My Plants</h1>
@@ -23,7 +50,12 @@ const MyPlant = ({ plant }) => {
               <button className="btn btn-primary">View Details</button>
             </Link>
             <button className="btn btn-primary">Update</button>
-            <button className="btn btn-primary">Delete</button>
+            <button
+              className="btn btn-primary"
+              onClick={() => handleDelete(plant._id)}
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>

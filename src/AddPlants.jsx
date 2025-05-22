@@ -1,56 +1,62 @@
 import React, { use } from "react";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import { AuthContext } from "./AuthProvidor";
+import Swal from "sweetalert2";
 
 const AddPlants = () => {
-  const {user}=use(AuthContext);
-    const handleAddPlant = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const image = form.image.value;
-        const name = form.name.value;
-        const category = form.category.value;
-        const description = form.description.value;
-        const careLevel = form.careLevel.value;
-        const frequency = form.frequency.value;
-        const lastWatered = form.lastWatered.value;
-        const nextWatered = form.nextWatered.value;
-        const healthStatus = form.healthStatus.value;
-        const email = form.email.value;
-        const userName = form.userName.value;
-        const loggedInUserEmail = user?.email;
+  const { user } = use(AuthContext);
+  const handleAddPlant = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const image = form.image.value;
+    const name = form.name.value;
+    const category = form.category.value;
+    const description = form.description.value;
+    const careLevel = form.careLevel.value;
+    const frequency = form.frequency.value;
+    const lastWatered = form.lastWatered.value;
+    const nextWatered = form.nextWatered.value;
+    const healthStatus = form.healthStatus.value;
+    const email = form.email.value;
+    const userName = form.userName.value;
+    const loggedInUserEmail = user?.email;
 
-        const plant = {
-            image,
-            name,
-            category,
-            description,
-            loggedInUserEmail,
-            careLevel,
-            frequency,
-            lastWatered,
-            nextWatered,
-            healthStatus,
-            email,
-            userName,
-        };
+    const plant = {
+      image,
+      name,
+      category,
+      description,
+      loggedInUserEmail,
+      careLevel,
+      frequency,
+      lastWatered,
+      nextWatered,
+      healthStatus,
+      email,
+      userName,
+    };
 
-        fetch("http://localhost:5000/plants",
-            {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(plant),
-            }
-        ).then((res) => res.json())
-        .then((data) => {
-                if (data.insertedId) {
-                    toast("Plant added successfully");
-                    form.reset();
-                }
-            })
-    }
+    fetch("http://localhost:5000/plants", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(plant),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Successfully Added Plant",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.reset();
+        }
+      });
+  };
   return (
     <div>
       <form onSubmit={handleAddPlant}>
