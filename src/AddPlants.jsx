@@ -1,7 +1,9 @@
-import React from "react";
+import React, { use } from "react";
 import { toast } from 'react-toastify';
+import { AuthContext } from "./AuthProvidor";
 
 const AddPlants = () => {
+  const {user}=use(AuthContext);
     const handleAddPlant = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -16,12 +18,14 @@ const AddPlants = () => {
         const healthStatus = form.healthStatus.value;
         const email = form.email.value;
         const userName = form.userName.value;
+        const loggedInUserEmail = user?.email;
 
         const plant = {
             image,
             name,
             category,
             description,
+            loggedInUserEmail,
             careLevel,
             frequency,
             lastWatered,
