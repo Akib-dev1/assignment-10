@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
@@ -16,6 +16,9 @@ import Register from './Register.jsx';
 import AuthProvidor from './AuthProvidor.jsx';
 import { ToastContainer } from 'react-toastify';
 import PrivateRoute from './PrivateRoute.jsx';
+import PlantDetails from './PlantDetails.jsx';
+
+const plantsData=fetch("http://localhost:5000/plants").then(res=>res.json());
 
 const router = createBrowserRouter([
   {
@@ -25,11 +28,13 @@ const router = createBrowserRouter([
       {
         index: true,
         path: "/",
-        element: <Home />
+        element: <Suspense fallback={<div className="flex justify-center items-center h-screen"><span className="loading loading-bars loading-xl mx-auto"></span></div>}>
+          <Home plantsData={plantsData}/>
+        </Suspense>
       },
       {
         path: "/all-plants",
-        element: <AllPlants />
+        element: <Suspense fallback={<div className="flex justify-center items-center h-screen"><span className="loading loading-bars loading-xl mx-auto"></span></div>}><AllPlants plantsData={plantsData}/></Suspense>,
       },
       {
         path: "/add-plants",
@@ -38,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/my-plants",
         element: <PrivateRoute><MyPlants /></PrivateRoute>
+      },
+      {
+        path: "all-plants/:id",
+        element: <PrivateRoute><PlantDetails /></PrivateRoute>,
       },
       {
         path: "/login",

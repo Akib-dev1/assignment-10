@@ -32,22 +32,22 @@ const Navbar = () => {
             >
               <li>
                 <NavLink className="border-b-2 text-lg border-b-transparent" to="/">
-                  <a>Home</a>
+                  Home
                 </NavLink>
               </li>
               <li>
                 <NavLink className="border-b-2 text-lg border-b-transparent" to="/all-plants">
-                  <a>All Plants</a>
+                  All Plants
                 </NavLink>
               </li>
               <li>
                 <NavLink className="border-b-2 text-lg border-b-transparent" to="/add-plants">
-                  <a>Add Plants</a>
+                  Add Plants
                 </NavLink>
               </li>
               <li>
                 <NavLink className="border-b-2 text-lg border-b-transparent" to="/my-plants">
-                  <a>My Plants</a>
+                  My Plants
                 </NavLink>
               </li>
             </ul>
@@ -60,22 +60,22 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">
             <li>
               <NavLink className="border-b-2 text-lg border-b-transparent" to="/">
-                <a>Home</a>
+                Home
               </NavLink>
             </li>
             <li>
               <NavLink className="border-b-2 text-lg border-b-transparent" to="/all-plants">
-                <a>All Plants</a>
+                All Plants
               </NavLink>
             </li>
             <li>
               <NavLink className="border-b-2 text-lg border-b-transparent" to="/add-plants">
-                <a>Add Plants</a>
+                Add Plants
               </NavLink>
             </li>
             <li>
               <NavLink className="border-b-2 text-lg border-b-transparent" to="/my-plants">
-                <a>My Plants</a>
+                My Plants
               </NavLink>
             </li>
           </ul>
