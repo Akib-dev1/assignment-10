@@ -73,6 +73,16 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
+                <Link to="/login" className="btn btn-outline btn-success my-3 md:hidden">
+                  Log In
+                </Link>
+              </li>
+              <li>
+                <Link to="/register" className="btn mb-2 btn-success md:hidden">
+                  Register
+                </Link>
+              </li>
+              <li>
                 <label className="swap swap-rotate">
                   {/* this hidden checkbox controls the state */}
                   <input
@@ -207,10 +217,10 @@ const Navbar = () => {
               </div>
             ) : (
               <div className="flex gap-2.5">
-                <Link to="/login" className="btn btn-outline btn-success">
+                <Link to="/login" className="btn btn-outline btn-success max-md:hidden">
                   Log In
                 </Link>
-                <Link to="/register" className="btn btn-success">
+                <Link to="/register" className="btn btn-success max-md:hidden">
                   Register
                 </Link>
               </div>
