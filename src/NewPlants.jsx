@@ -12,7 +12,7 @@ const NewPlants = ({ data1 }) => {
         schedule, and more to keep track of your plant’s health and care
         routine.
       </p>
-      <div className="grid grid-cols-2 gap-10">
+      <div className="grid max-lg:grid-cols-1 lg:grid-cols-2 gap-10">
         {data1.map((plant) => (
           <Plant key={plant._id} plant={plant}></Plant>
         ))}
