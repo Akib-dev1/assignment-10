@@ -8,7 +8,7 @@ const MyPlants = () => {
   const [plantsData, setPlantsData] = useState([]);
   useEffect(() => {
     if (email) {
-      fetch(`http://localhost:5000/plants/${email}`)
+      fetch(`https://b11a10-server-side-akib-dev1.vercel.app/plants/${email}`)
         .then((res) => res.json())
         .then((data) => {
           setPlantsData(data);

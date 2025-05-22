@@ -35,7 +35,7 @@ const AddPlants = () => {
       userName,
     };
 
-    fetch("http://localhost:5000/plants", {
+    fetch("https://b11a10-server-side-akib-dev1.vercel.app/plants", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -22,7 +22,7 @@ import Error from './Error.jsx';
 import Upadate from './Upadate.jsx';
 
 
-const plantsData=fetch("http://localhost:5000/plants").then(res=>res.json());
+const plantsData=fetch("https://b11a10-server-side-akib-dev1.vercel.app/plants").then(res=>res.json());
 
 const router = createBrowserRouter([
   {

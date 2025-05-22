@@ -34,7 +34,7 @@ const Upadate = ({ plantsData }) => {
       email,
       userName,
     };
-    fetch(`http://localhost:5000/plants/${id}`, {
+    fetch(`https://b11a10-server-side-akib-dev1.vercel.app/plants/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
