@@ -17,6 +17,7 @@ const MyPlants = () => {
   }, [email]);
   return (
     <div className="min-h-screen">
+      <title>PlantPlanet - My Plants</title>
       {plantsData.length === 0 ? (
         <h1 className="text-5xl text-green-600 text-center mt-10">
           No Plants Added

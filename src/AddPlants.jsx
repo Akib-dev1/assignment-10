@@ -58,6 +58,7 @@ const AddPlants = () => {
   };
   return (
     <div>
+      <title>PlantPlanet - Add Plants</title>
       <form onSubmit={handleAddPlant}>
         <div className="bg-green-900 p-10 my-10">
           <h1 className="text-5xl text-center text-white mb-10">Add Plants</h1>

@@ -55,6 +55,7 @@ const Upadate = ({ plantsData }) => {
   };
   return (
     <div>
+      <title>PlantPlanet - Update Plants</title>
       <form onSubmit={handleUpdatePlant}>
         <div className="bg-green-900 p-10 my-10">
           <h1 className="text-5xl text-center text-white mb-10">

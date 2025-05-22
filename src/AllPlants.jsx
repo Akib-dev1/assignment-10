@@ -6,6 +6,7 @@ const AllPlants = ({ plantsData }) => {
   const plantData = use(plantsData);
   return (
     <div className="min-h-screen">
+      <title>PlantPlanet - All Plants</title>
       <h1 className="text-5xl text-green-600 text-center mt-10">All Plants</h1>
       <div className="overflow-x-auto my-10">
         <table className="table">
