@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 
-const MyPlant = ({ plant }) => {
+const MyPlant = ({ plant, plantsData, setPlantsData }) => {
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -19,6 +19,8 @@ const MyPlant = ({ plant }) => {
         }).then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
+                const remainingPlants = plantsData.filter(plant => plant._id !== id);
+                setPlantsData(remainingPlants);
               Swal.fire({
                 title: "Deleted!",
                 text: "Your plant has been deleted.",
@@ -49,7 +51,7 @@ const MyPlant = ({ plant }) => {
             <Link to={`/all-plants/${plant._id}`}>
               <button className="btn btn-primary">View Details</button>
             </Link>
-            <button className="btn btn-primary">Update</button>
+            <Link to={`/my-plants/update/${plant._id}`}><button className="btn btn-primary">Update</button></Link>
             <button
               className="btn btn-primary"
               onClick={() => handleDelete(plant._id)}

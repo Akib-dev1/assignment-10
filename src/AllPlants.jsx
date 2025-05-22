@@ -1,5 +1,6 @@
 import React, { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "./AuthProvidor";
 
 const AllPlants = ({ plantsData }) => {
   const plantData = use(plantsData);

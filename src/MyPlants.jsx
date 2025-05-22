@@ -22,7 +22,7 @@ const MyPlants = () => {
           No Plants Added
         </h1>
       ) : (
-        plantsData.map((plant) => <MyPlant key={plant._id} plant={plant} />)
+        plantsData.map((plant) => <MyPlant key={plant._id} plant={plant} plantsData={plantsData} setPlantsData={setPlantsData}/>)
       )}
     </div>
   );

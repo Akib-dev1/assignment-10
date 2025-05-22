@@ -19,6 +19,7 @@ import PrivateRoute from './PrivateRoute.jsx';
 import PlantDetails from './PlantDetails.jsx';
 import 'react-tooltip/dist/react-tooltip.css';
 import Error from './Error.jsx';
+import Upadate from './Upadate.jsx';
 
 
 const plantsData=fetch("http://localhost:5000/plants").then(res=>res.json());
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
         path: "all-plants/:id",
         errorElement: <Error />,
         element: <Suspense fallback={<div className="flex justify-center items-center h-screen"><span className="loading loading-bars loading-xl mx-auto"></span></div>}><PrivateRoute><PlantDetails plantsData={plantsData}/></PrivateRoute></Suspense>,
+      },
+      {
+        path: "/my-plants/update/:id",
+        element: <Suspense fallback={<div className="flex justify-center items-center h-screen"><span className="loading loading-bars loading-xl mx-auto"></span></div>}><PrivateRoute><Upadate plantsData={plantsData} /></PrivateRoute></Suspense>,
       },
       {
         path: "/login",

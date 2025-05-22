@@ -1,12 +1,14 @@
 import React, { use } from "react";
-import { AuthContext } from "./AuthProvidor";
+import { useParams } from "react-router";
 import Swal from "sweetalert2";
 
-const AddPlants = () => {
-  const { user } = use(AuthContext);
-  const handleAddPlant = (e) => {
-    e.preventDefault();
-    const form = e.target;
+const Upadate = ({ plantsData }) => {
+  const plantData = use(plantsData);
+  const { id } = useParams();
+  const plant = plantData.find((plant) => plant._id === id);
+  const handleUpdatePlant = (event) => {
+    event.preventDefault();
+    const form = event.target;
     const image = form.image.value;
     const name = form.name.value;
     const category = form.category.value;
@@ -18,14 +20,12 @@ const AddPlants = () => {
     const healthStatus = form.healthStatus.value;
     const email = form.email.value;
     const userName = form.userName.value;
-    const loggedInUserEmail = user?.email;
 
-    const plant = {
+    const updatedPlant = {
       image,
       name,
       category,
       description,
-      loggedInUserEmail,
       careLevel,
       frequency,
       lastWatered,
@@ -34,33 +34,32 @@ const AddPlants = () => {
       email,
       userName,
     };
-
-    fetch("http://localhost:5000/plants", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(plant),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Successfully Added Plant",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          form.reset();
-        }
-      });
+    fetch(`http://localhost:5000/plants/${id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedPlant)
+    }).then((res) => res.json())
+        .then((data) => {
+            if(data.modifiedCount){
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Plant Updated Successfully",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            }
+        })
   };
   return (
     <div>
-      <form onSubmit={handleAddPlant}>
+      <form onSubmit={handleUpdatePlant}>
         <div className="bg-green-900 p-10 my-10">
-          <h1 className="text-5xl text-center text-white mb-10">Add Plants</h1>
+          <h1 className="text-5xl text-center text-white mb-10">
+            Update Plant
+          </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <fieldset className="fieldset md:col-span-2 bg-base-100 border-base-300 rounded-box w-full border p-4">
               <label className="label">Image Url</label>
@@ -69,6 +68,7 @@ const AddPlants = () => {
                 className="input w-full"
                 placeholder="Image URL"
                 name="image"
+                defaultValue={plant.image}
               />
             </fieldset>
             <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-full border p-4">
@@ -78,6 +78,7 @@ const AddPlants = () => {
                 className="input w-full"
                 placeholder="Plant Name"
                 name="name"
+                defaultValue={plant.name}
               />
             </fieldset>
             <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-full border p-4">
@@ -86,7 +87,7 @@ const AddPlants = () => {
                 name="category"
                 id="category"
                 className="select w-full select-bordered"
-                defaultValue={"1"}
+                defaultValue={plant.category}
               >
                 <option disabled={true} value={"1"}>
                   Select a Category
@@ -104,6 +105,7 @@ const AddPlants = () => {
                 className="input w-full"
                 placeholder="Description"
                 name="description"
+                defaultValue={plant.description}
               />
             </fieldset>
             <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-full border p-4">
@@ -112,7 +114,7 @@ const AddPlants = () => {
                 name="careLevel"
                 id="careLevel"
                 className="select w-full select-bordered"
-                defaultValue={"1"}
+                defaultValue={plant.careLevel}
               >
                 <option disabled={true} value={"1"}>
                   Select a Category
@@ -128,7 +130,7 @@ const AddPlants = () => {
                 name="frequency"
                 id="frequency"
                 className="select w-full select-bordered"
-                defaultValue={"1"}
+                defaultValue={plant.frequency}
               >
                 <option disabled={true} value={"1"}>
                   Select Watering Frequency
@@ -142,11 +144,21 @@ const AddPlants = () => {
             </fieldset>
             <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-full border p-4">
               <label className="label">Last Watered Date</label>
-              <input type="date" className="input w-full" name="lastWatered" />
+              <input
+                type="date"
+                className="input w-full"
+                name="lastWatered"
+                defaultValue={plant.lastWatered}
+              />
             </fieldset>
             <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-full border p-4">
               <label className="label">Next Watering Date</label>
-              <input type="date" className="input w-full" name="nextWatered" />
+              <input
+                type="date"
+                className="input w-full"
+                name="nextWatered"
+                defaultValue={plant.nextWatered}
+              />
             </fieldset>
             <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-full border p-4">
               <label className="label">Health Status</label>
@@ -155,6 +167,7 @@ const AddPlants = () => {
                 className="input w-full"
                 placeholder="Health Status"
                 name="healthStatus"
+                defaultValue={plant.healthStatus}
               />
             </fieldset>
             <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-full border p-4">
@@ -164,6 +177,7 @@ const AddPlants = () => {
                 className="input w-full"
                 placeholder="Email"
                 name="email"
+                defaultValue={plant.email}
               />
             </fieldset>
             <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-full border p-4">
@@ -173,13 +187,14 @@ const AddPlants = () => {
                 className="input w-full"
                 placeholder="User Name"
                 name="userName"
+                defaultValue={plant.userName}
               />
             </fieldset>
           </div>
           <div className="flex justify-center">
             <input
               type="submit"
-              value="Add Plant"
+              value="Update Plant"
               className="btn md:w-1/3 mt-6 text-xl btn-success"
             />
           </div>
@@ -189,4 +204,4 @@ const AddPlants = () => {
   );
 };
 
-export default AddPlants;
+export default Upadate;
