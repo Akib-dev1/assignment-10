@@ -24,6 +24,10 @@ import Upadate from './Upadate.jsx';
 
 const plantsData=fetch("https://b11a10-server-side-akib-dev1.vercel.app/plants").then(res=>res.json());
 
+const plantsDataSortCare=fetch("https://b11a10-server-side-akib-dev1.vercel.app/plants/sortCare").then(res=>res.json());
+
+const plantsDataSortNext=fetch("https://b11a10-server-side-akib-dev1.vercel.app/plants/sortNext").then(res=>res.json());
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,7 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/all-plants",
-        element: <Suspense fallback={<div className="flex justify-center items-center h-screen"><span className="loading loading-bars loading-xl mx-auto"></span></div>}><AllPlants plantsData={plantsData}/></Suspense>,
+        element: <Suspense fallback={<div className="flex justify-center items-center h-screen"><span className="loading loading-bars loading-xl mx-auto"></span></div>}><AllPlants plantsDataSortCare={plantsDataSortCare} plantsDataSortNext={plantsDataSortNext} plantsData={plantsData}/></Suspense>,
       },
       {
         path: "/add-plants",
