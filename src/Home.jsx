@@ -29,7 +29,7 @@ const Home = ({ plantsData }) => {
       <div className="pt-24" id="offers">
         <Section4 />
       </div>
-      <div className="pt-24" id="about-us">
+      <div className="" id="about-us">
         <Section5 />
       </div>
     </div>
