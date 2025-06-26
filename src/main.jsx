@@ -20,6 +20,10 @@ import PlantDetails from './PlantDetails.jsx';
 import 'react-tooltip/dist/react-tooltip.css';
 import Error from './Error.jsx';
 import Upadate from './Upadate.jsx';
+import Dashboard from './Dashboard.jsx';
+import DashAllPlants from './DashAllPlants.jsx';
+import Overview from './Overview.jsx';
+import DashMyPlants from './DashMyPlants.jsx';
 
 
 const plantsData=fetch("https://b11a10-server-side-akib-dev1.vercel.app/plants").then(res=>res.json());
@@ -44,6 +48,29 @@ const router = createBrowserRouter([
       {
         path: "/all-plants",
         element: <Suspense fallback={<div className="flex justify-center items-center h-screen"><span className="loading loading-bars loading-xl mx-auto"></span></div>}><AllPlants plantsDataSortCare={plantsDataSortCare} plantsDataSortNext={plantsDataSortNext} plantsData={plantsData}/></Suspense>,
+      },
+      {
+        path: "/dashboard",
+        element: <PrivateRoute><Dashboard /></PrivateRoute>,
+        children: [
+          {
+            index: true,
+            path: "/dashboard",
+            element: <PrivateRoute><Overview plantsData={plantsData} /></PrivateRoute>
+          },
+          {
+            path: "/dashboard/all-plants",
+            element: <PrivateRoute><DashAllPlants plantsData={plantsData} /></PrivateRoute>
+          },
+          {
+            path: "/dashboard/add-plants",
+            element: <PrivateRoute><AddPlants /></PrivateRoute>
+          },
+          {
+            path: "/dashboard/my-plants",
+            element: <PrivateRoute><DashMyPlants /></PrivateRoute>
+          }
+        ]
       },
       {
         path: "/add-plants",

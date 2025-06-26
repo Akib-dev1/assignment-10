@@ -6,10 +6,10 @@ import Footer from "./Footer"
 function App() {
     return (
     <>
-      <header>
+      <header className="sticky top-0 z-50">
         <Navbar />
       </header>
-      <main className="w-11/12 mx-auto">
+      <main>
         <Outlet />
       </main>
       <footer>

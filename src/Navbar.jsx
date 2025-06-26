@@ -56,32 +56,51 @@ const Navbar = () => {
                   All Plants
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  className="border-b-2 text-lg border-b-transparent"
-                  to="/add-plants"
-                >
-                  Add Plants
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className="border-b-2 text-lg border-b-transparent"
-                  to="/my-plants"
-                >
-                  My Plants
-                </NavLink>
-              </li>
-              <li>
-                <Link to="/login" className="btn btn-outline btn-success my-3 md:hidden">
-                  Log In
-                </Link>
-              </li>
-              <li>
-                <Link to="/register" className="btn mb-2 btn-success md:hidden">
-                  Register
-                </Link>
-              </li>
+              {user && (
+                <>
+                  <li>
+                    <NavLink
+                      className="border-b-2 text-lg border-b-transparent"
+                      to="/add-plants"
+                    >
+                      Add Plants
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className="border-b-2 text-lg border-b-transparent"
+                      to="/my-plants"
+                    >
+                      My Plants
+                    </NavLink>
+                  </li>
+                  <li>
+                    <Link to="/dashboard" className="btn btn-success ml-4">
+                      Dashboard
+                    </Link>
+                  </li>
+                </>
+              )}
+              {!user && (
+                <>
+                  <li>
+                    <Link
+                      to="/login"
+                      className="btn btn-outline btn-success my-3 md:hidden"
+                    >
+                      Log In
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/register"
+                      className="btn mb-2 btn-success md:hidden"
+                    >
+                      Register
+                    </Link>
+                  </li>
+                </>
+              )}
               <li>
                 <label className="swap swap-rotate">
                   {/* this hidden checkbox controls the state */}
@@ -137,22 +156,26 @@ const Navbar = () => {
                 All Plants
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                className="border-b-2 text-lg border-b-transparent"
-                to="/add-plants"
-              >
-                Add Plants
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className="border-b-2 text-lg border-b-transparent"
-                to="/my-plants"
-              >
-                My Plants
-              </NavLink>
-            </li>
+            {user && (
+              <>
+                <li>
+                  <NavLink
+                    className="border-b-2 text-lg border-b-transparent"
+                    to="/add-plants"
+                  >
+                    Add Plants
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    className="border-b-2 text-lg border-b-transparent"
+                    to="/my-plants"
+                  >
+                    My Plants
+                  </NavLink>
+                </li>
+              </>
+            )}
             <li>
               <label className="swap swap-rotate">
                 {/* this hidden checkbox controls the state */}
@@ -187,37 +210,45 @@ const Navbar = () => {
         <div className="navbar-end">
           <div className="navbar-end flex gap-2.5">
             {user ? (
-              <div className="dropdown dropdown-end">
-                <div
-                  className="avatar cursor-pointer"
-                  tabIndex={0}
-                  role="button"
-                >
+              <>
+                <div className="dropdown dropdown-end">
                   <div
-                    className="w-12 rounded-full"
-                    data-tooltip-id="userName"
-                    data-tooltip-content={user.displayName}
+                    className="avatar cursor-pointer"
+                    tabIndex={0}
+                    role="button"
                   >
-                    <img src={user.photoURL} />
-                  </div>
-                </div>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
-                >
-                  <li>
-                    <button
-                      className="btn btn-success text-black mt-1"
-                      onClick={logout}
+                    <div
+                      className="w-12 rounded-full"
+                      data-tooltip-id="userName"
+                      data-tooltip-content={user.displayName}
                     >
-                      Logout
-                    </button>
-                  </li>
-                </ul>
-              </div>
+                      <img src={user.photoURL} />
+                    </div>
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+                  >
+                    <li>
+                      <button
+                        className="btn btn-success text-black mt-1"
+                        onClick={logout}
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <Link to="/dashboard" className="btn btn-success ml-4">
+                  Dashboard
+                </Link>
+              </>
             ) : (
               <div className="flex gap-2.5">
-                <Link to="/login" className="btn btn-outline btn-success max-md:hidden">
+                <Link
+                  to="/login"
+                  className="btn btn-outline btn-success max-md:hidden"
+                >
                   Log In
                 </Link>
                 <Link to="/register" className="btn btn-success max-md:hidden">

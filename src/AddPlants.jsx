@@ -57,7 +57,7 @@ const AddPlants = () => {
       });
   };
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <title>PlantPlanet - Add Plants</title>
       <form onSubmit={handleAddPlant}>
         <div className="bg-green-900 p-10 my-10">

@@ -6,7 +6,9 @@ const Footer = () => {
       <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
         <aside>
           <a className="text-3xl text-green-500 font-bold">
-            <p>Plant<span className="text-orange-400">Planet</span></p>
+            <p>
+              Plant<span className="text-orange-400">Planet</span>
+            </p>
           </a>
           <p>
             Plant Planet Ltd.
@@ -52,6 +54,20 @@ const Footer = () => {
             </a>
           </div>
         </nav>
+        <div className="">
+            <h6 className="footer-title mt-2">Quick Links</h6>
+            <div className="grid grid-flow-col gap-4">
+              <a href="#new-plants" className="link link-hover">
+                New Plants
+              </a>
+              <a href="#plant-care-mistakes" className="link link-hover">
+                Plant Care Mistakes
+              </a>
+              <a href="#beginner-friendly-plants" className="link link-hover">
+                Beginner-Friendly Plants
+              </a>
+            </div>
+          </div>
       </footer>
     </div>
   );

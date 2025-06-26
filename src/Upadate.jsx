@@ -54,7 +54,7 @@ const Upadate = ({ plantsData }) => {
         })
   };
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <title>PlantPlanet - Update Plants</title>
       <form onSubmit={handleUpdatePlant}>
         <div className="bg-green-900 p-10 my-10">

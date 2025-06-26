@@ -8,12 +8,18 @@ const Home = ({ plantsData }) => {
   const data = use(plantsData);
   const data1 = data.slice(0, 6);
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <title>PlantPlanet - Home</title>
       <Hero />
-      <NewPlants data1={data1} />
-      <Section1 />
-      <Section2 />
+      <div id="new-plants" className="pt-24">
+        <NewPlants data1={data1} />
+      </div>
+      <div id="plant-care-mistakes" className="pt-24">
+        <Section1 />
+      </div>
+      <div className="pt-24" id="beginner-friendly-plants">
+        <Section2 />
+      </div>
     </div>
   );
 };
