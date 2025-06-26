@@ -29,7 +29,7 @@ const Hero = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="p-10">
-            <img src="https://i.ibb.co/6RszbS45/types-of-plants-information-set.webp" alt="" className="md:h-[37.5rem] mx-auto md:w-6xl"/>
+            <img src="https://i.ibb.co.com/HfBYVmFY/image.png" alt="" className="md:h-[37.5rem] mx-auto md:w-6xl"/>
           </div>
         </SwiperSlide>
         <SwiperSlide>

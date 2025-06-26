@@ -3,6 +3,9 @@ import Hero from "./Hero";
 import Section1 from "./Section1";
 import Section2 from "./Section2";
 import NewPlants from "./NewPlants";
+import Section3 from "./Section3";
+import Section4 from "./Section4";
+import Section5 from "./Section5";
 
 const Home = ({ plantsData }) => {
   const data = use(plantsData);
@@ -19,6 +22,15 @@ const Home = ({ plantsData }) => {
       </div>
       <div className="pt-24" id="beginner-friendly-plants">
         <Section2 />
+      </div>
+      <div className="pt-24" id="categories">
+        <Section3 />
+      </div>
+      <div className="pt-24" id="offers">
+        <Section4 />
+      </div>
+      <div className="pt-24" id="about-us">
+        <Section5 />
       </div>
     </div>
   );

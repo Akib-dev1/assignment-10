@@ -55,19 +55,28 @@ const Footer = () => {
           </div>
         </nav>
         <div className="">
-            <h6 className="footer-title mt-2">Quick Links</h6>
-            <div className="grid grid-flow-col gap-4">
-              <a href="#new-plants" className="link link-hover">
-                New Plants
-              </a>
-              <a href="#plant-care-mistakes" className="link link-hover">
-                Plant Care Mistakes
-              </a>
-              <a href="#beginner-friendly-plants" className="link link-hover">
-                Beginner-Friendly Plants
-              </a>
-            </div>
+          <h6 className="footer-title mt-2">Quick Links</h6>
+          <div className="flex flex-col gap-4">
+            <a href="#new-plants" className="link link-hover">
+              New Plants
+            </a>
+            <a href="#plant-care-mistakes" className="link link-hover">
+              Plant Care Mistakes
+            </a>
+            <a href="#beginner-friendly-plants" className="link link-hover">
+              Beginner-Friendly Plants
+            </a>
+            <a href="#categories" className="link link-hover">
+              Categories
+            </a>
+            <a href="#offers" className="link link-hover">
+              Offers
+            </a>
+            <a href="#about-us" className="link link-hover">
+              About Us
+            </a>
           </div>
+        </div>
       </footer>
     </div>
   );

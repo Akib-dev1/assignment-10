@@ -75,7 +75,7 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <Link to="/dashboard" className="btn btn-success ml-4">
+                    <Link to="/dashboard" className="btn btn-success">
                       Dashboard
                     </Link>
                   </li>
@@ -239,7 +239,7 @@ const Navbar = () => {
                     </li>
                   </ul>
                 </div>
-                <Link to="/dashboard" className="btn btn-success ml-4">
+                <Link to="/dashboard" className="btn max-lg:hidden btn-success ml-4">
                   Dashboard
                 </Link>
               </>
