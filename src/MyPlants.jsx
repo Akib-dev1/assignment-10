@@ -18,12 +18,20 @@ const MyPlants = () => {
   return (
     <div className="min-h-screen w-11/12 mx-auto">
       <title>PlantPlanet - My Plants</title>
+      <h1 className="text-5xl text-green-600 text-center mt-10">My Plants</h1>
       {plantsData.length === 0 ? (
         <h1 className="text-5xl text-green-600 text-center mt-10">
           No Plants Added
         </h1>
       ) : (
-        plantsData.map((plant) => <MyPlant key={plant._id} plant={plant} plantsData={plantsData} setPlantsData={setPlantsData}/>)
+        plantsData.map((plant) => (
+          <MyPlant
+            key={plant._id}
+            plant={plant}
+            plantsData={plantsData}
+            setPlantsData={setPlantsData}
+          />
+        ))
       )}
     </div>
   );

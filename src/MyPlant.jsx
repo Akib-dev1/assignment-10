@@ -32,8 +32,7 @@ const MyPlant = ({ plant, plantsData, setPlantsData }) => {
     });
   };
   return (
-    <div className="min-h-screen">
-      <h1 className="text-5xl text-green-600 text-center mt-10">My Plants</h1>
+    <div>
       <div className="card card-side my-10 bg-base-100 shadow-sm">
         <figure>
           <img
